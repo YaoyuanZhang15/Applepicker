@@ -19,12 +19,12 @@ public class basket : MonoBehaviour
 {
     [Header("Set Dynamically")]
     public Text scoreGT;
-    private float basketBottomY;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject scoreGO = GameObject.Find("ScoreCountor");
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
         scoreGT = scoreGO.GetComponent<Text>();
         scoreGT.text = "0";
     }
@@ -32,30 +32,26 @@ public class basket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        void Update()
-        {
+        
+        
             Vector3 mousePos2D = Input.mousePosition;
             mousePos2D.z = -Camera.main.transform.position.z;
             Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
             Vector3 pos = this.transform.position;
             pos.x = mousePos3D.x;
             this.transform.position = pos;
-        }
+        
 
 
-        if(transform.position.y < basketBottomY)
-        {
-            Destroy(this.gameObject);
-        }
-    
+        
         
     }
-private void OnCollisionEnter(Collision coll)
+     void OnCollisionEnter(Collision coll)
     {
-        GameObject collideWith = coll.gameObject;
-        if(collideWith.tag == "Apple")
+        GameObject collidedWith = coll.gameObject;
+        if(collidedWith.tag == "Apple")
         {
-            Destroy(collideWith);
+            Destroy(collidedWith);
 
             int score = int.Parse(scoreGT.text);
             score += 100;

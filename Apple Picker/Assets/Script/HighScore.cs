@@ -20,20 +20,17 @@ public class HighScore : MonoBehaviour
     
     static public int score = 1000;
 
-    private void Awake()
+    void Awake()
     {
         if (PlayerPrefs.HasKey("HighScore"))
         {
-            score = PlayerPrefs.GetInt("HighCore");
+            score = PlayerPrefs.GetInt("HighScore");
         }
 
         PlayerPrefs.SetInt("HighScore", score);
     }
     // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
+    
 
     // Update is called once per frame
     void Update()

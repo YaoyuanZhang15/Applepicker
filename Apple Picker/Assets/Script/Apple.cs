@@ -34,8 +34,8 @@ public class Apple : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameObject gm = GameObject.Find("GameManager");
-            ApplePicker aScript = Camera.main.GetComponent<ApplePicker>();
-            aScript.AppleDes
+            ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
+            apScript.AppleDestroyed();
         }
     }
 }
